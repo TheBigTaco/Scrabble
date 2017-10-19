@@ -12,5 +12,18 @@ namespace Scrabble.Controllers
       {
         return View();
       }
+      [HttpPost("/result")]
+      public ActionResult Result()
+      {
+        try
+        {
+          int score = Game.WordScore(Request.Form["user-input"]);
+          return View(score);
+        }
+        catch(Exception)
+        {
+          return View(null);
+        }
+      }
     }
 }

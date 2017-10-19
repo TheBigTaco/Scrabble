@@ -22,7 +22,17 @@ namespace Scrabble.Tests
     [TestMethod]
     public void WordScore_WillGetScoreForWord_Int()
     {
-      Assert.AreEqual(10, Game.WordScore("abcde"));
+      Assert.AreEqual(8, Game.WordScore("hello"));
+    }
+    [TestMethod]
+    public void WordScore_WillStopMultipleWords_Int()
+    {
+      Assert.AreEqual(10, Game.WordScore("ab cde"));
+    }
+    [TestMethod]
+    public void WordScore_WillStopSpecialCharacters_Int()
+    {
+      Assert.AreEqual(10, Game.WordScore("ab-cde"));
     }
   }
 }
